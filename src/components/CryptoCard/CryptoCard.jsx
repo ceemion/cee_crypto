@@ -8,7 +8,6 @@ class CryptoCard extends Component {
   }
 
   render() {
-    console.log('in crypto-card - ', this.props)
     return (
       <div className="crypto-card">
         <div className="header">
