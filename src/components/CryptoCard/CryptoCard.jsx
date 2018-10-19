@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './CryptoCard.css';
+import moment from 'moment';
 
 class CryptoCard extends Component {
   constructor(props) {
@@ -8,24 +10,30 @@ class CryptoCard extends Component {
   }
 
   render() {
+    const {type, data} = this.props;
+    const coinsFullName = {
+      btc: 'bitcoin',
+      eth: 'ethereum',
+      bch: 'bitcoin cash'
+    };
+
     return (
       <div className="crypto-card">
         <div className="header">
           <div className="title">
-            title - {this.props.type}
+            {type.toUpperCase()} <span className={type.toLowerCase()}>{coinsFullName[type.toLowerCase()]}</span>
           </div>
-          <div className="icon">
-            icon
-          </div>
+          <div className="icon"></div>
         </div>
 
         <div className="prices">
-          prices
-          <div className="main">NGN ${this.props.data.NGN}</div>
+          <div className="main">NGN {data.NGN}</div>
+          <div className="sub">USD {data.USD}</div>
+          <div className="sub">EUR {data.EUR}</div>
         </div>
 
         <div className="updated-time">
-          time
+          <p>Updated {moment().calendar(null, {sameDay : '[today at] h:mm:ss a',})}</p>
         </div>
 
         <p>set target</p>

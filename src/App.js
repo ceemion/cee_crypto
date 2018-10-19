@@ -6,12 +6,10 @@ import CryptoCard from './components/CryptoCard';
 class App extends Component {
   render() {
     return (
-      <div className="Ap">
-        <header className="App-he">
-          <div className="main-title">
-            <span>Cee</span><span>Crypto</span>
-            <p className="sub-title">monitor cryptocurrency prices in real time</p>
-          </div>
+      <div className="crypto-wrapper">
+        <header className="main-title">
+          <span>Cee</span><span>Crypto</span>
+          <p className="sub-title">monitor cryptocurrency prices in real time</p>
         </header>
 
         <FetchData
