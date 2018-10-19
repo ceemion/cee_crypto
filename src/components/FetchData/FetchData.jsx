@@ -7,7 +7,8 @@ class FetchData extends Component {
 
     this.state = {
       loading: false,
-      data: {}
+      data: {},
+      error: null
     }
   }
 
@@ -18,13 +19,20 @@ class FetchData extends Component {
   }
 
   _fetchData = async () => {
-    const response = await fetch(this.props.url);
-    const json = await response.json();
+    try {
+      const response = await fetch(this.props.url);
+      const json = await response.json();
 
-    this.setState({
-      loading: false,
-      data: json
-    })
+      this.setState({
+        loading: false,
+        data: json
+      })
+    } catch (error) {
+      this.setState({
+        loading: false,
+        error: error.toString()
+      })
+    }
   }
 
   render() {

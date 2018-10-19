@@ -16,9 +16,10 @@ class App extends Component {
 
         <FetchData
           url="https://min-api.cryptocompare.com/data/pricemulti?fsyms=ETH,BTC,BCH&tsyms=NGN,USD,EUR"
-          render={({loading, data}) => (
+          render={({loading, data, error}) => (
             <div>
-              <p>{loading ? 'I am loading...' : 'Done loading'}</p>
+              {loading && <div className="status-text"><em>preparing your cryptos...</em></div>}
+              {error && <div className="status-text">{error}. Ensure you're connected to a network and reload!</div>}
               {!!Object.keys(data).length && Object.keys(data).map(key => (
                 <CryptoCard key={key} type={key} data={data[key]} />
               ))}
