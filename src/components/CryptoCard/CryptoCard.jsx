@@ -3,12 +3,6 @@ import './CryptoCard.css';
 import moment from 'moment';
 
 class CryptoCard extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {}
-  }
-
   render() {
     const {type, data} = this.props;
     const coinsFullName = {
@@ -35,8 +29,6 @@ class CryptoCard extends Component {
         <div className="updated-time">
           <p>Updated {moment().calendar(null, {sameDay : '[today at] h:mm:ss a',})}</p>
         </div>
-
-        <p>set target</p>
       </div>
     )
   }
